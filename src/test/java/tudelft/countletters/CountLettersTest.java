@@ -17,4 +17,15 @@ public class CountLettersTest {
         Assertions.assertEquals(1, words);
     }
 
+    @Test
+    public void lastWordDoesMatchWithoutS() {
+        int words = new CountLetters().count("cat|dog");
+        Assertions.assertEquals(0, words);
+    }
+
+    @Test
+    public void coverageCovering() {
+        int words = new CountLetters().count("teacher|box");
+        Assertions.assertEquals(2, words);
+    }
 }
