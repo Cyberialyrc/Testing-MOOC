@@ -22,5 +22,4 @@ public class ChristmasDiscountRefactored {
 
         return rawAmount - (rawAmount * discountPercentage);
     }
-
 }

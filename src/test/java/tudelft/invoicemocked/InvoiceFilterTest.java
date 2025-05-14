@@ -11,18 +11,18 @@ public class InvoiceFilterTest {
     @Test
     void filterInvoices() {
 
-        Invoice mauricio = new Invoice("Mauricio", 20.0);
-        Invoice arie = new Invoice("Arie", 300.0);
+        Invoice i1 = new Invoice("Mauricio", 20.0);
+        Invoice i2 = new Invoice("Arie", 300.0);
 
         InvoiceDao dao = Mockito.mock(InvoiceDao.class);
 
-        List<Invoice> results = Arrays.asList(mauricio, arie);
+        List<Invoice> results = Arrays.asList(i1, i2);
         Mockito.when(dao.all()).thenReturn(results);
 
         InvoiceFilter filter = new InvoiceFilter(dao);
         List<Invoice> result = filter.filter();
 
-        Assertions.assertEquals(mauricio, result.get(0));
+        Assertions.assertEquals(i1, result.get(0));
         Assertions.assertEquals(1, result.size());
     }
 

@@ -10,18 +10,15 @@ public class InvoiceFilterTest {
     void filterInvoices() {
 
         InvoiceDao dao = new InvoiceDao();
-        Invoice mauricio = new Invoice("Mauricio", 20.0);
-        Invoice arie = new Invoice("Arie", 300.0);
-
-        dao.save(mauricio);
-        dao.save(arie);
+        Invoice i1 = new Invoice("Mauricio", 20.0);
+        Invoice i2 = new Invoice("Arie", 300.0);
+        dao.save(i1);dao.save(i2);
 
         InvoiceFilter filter = new InvoiceFilter();
         List<Invoice> result = filter.filter();
 
-        Assertions.assertEquals(mauricio, result.get(0));
         Assertions.assertEquals(1, result.size());
-
+        Assertions.assertEquals(i1, result.get(0));
         dao.close();
     }
 
