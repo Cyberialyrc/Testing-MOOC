@@ -15,7 +15,7 @@ public class DiscountApplierTest {
         when(homeProduct.getPrice()).thenReturn(100.0);
 
         ProductDao dao = Mockito.mock(ProductDao.class);
-        when(dao.all()).thenReturn(List.of(homeProduct));
+        when(dao.all()).thenReturn(Arrays.asList(homeProduct));
 
         DiscountApplier applier = new DiscountApplier(dao);
         applier.setNewPrices();
@@ -30,7 +30,7 @@ public class DiscountApplierTest {
         when(businessProduct.getPrice()).thenReturn(200.0);
 
         ProductDao dao = Mockito.mock(ProductDao.class);
-        when(dao.all()).thenReturn(List.of(businessProduct));
+        when(dao.all()).thenReturn(Arrays.asList(businessProduct));
 
         DiscountApplier applier = new DiscountApplier(dao);
         applier.setNewPrices();
@@ -44,7 +44,7 @@ public class DiscountApplierTest {
         when(otherProduct.getCategory()).thenReturn("OTHER");
 
         ProductDao dao = Mockito.mock(ProductDao.class);
-        when(dao.all()).thenReturn(List.of(otherProduct));
+        when(dao.all()).thenReturn(Arrays.asList(otherProduct));
 
         DiscountApplier applier = new DiscountApplier(dao);
         applier.setNewPrices();

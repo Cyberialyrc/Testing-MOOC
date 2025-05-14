@@ -9,15 +9,18 @@ public class DiscountApplier {
     }
 
     public void setNewPrices() {
-
         for(Product product : dao.all()) {
+            double originalPrice = product.getPrice();
+
             if(product.getCategory().equals("BUSINESS")) {
-                product.setPrice(product.getPrice() * 0.9);
+                double newPrice = Math.round(originalPrice * 1.1 * 100.0) / 100.0;
+                product.setPrice(newPrice);
             }
+
             if(product.getCategory().equals("HOME")) {
-                product.setPrice(product.getPrice() * 1.1);
+                double newPrice = Math.round(originalPrice * 0.9 * 100.0) / 100.0;
+                product.setPrice(newPrice);
             }
         }
-
     }
 }
